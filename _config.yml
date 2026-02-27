@@ -2,20 +2,20 @@
 name: Sonquain的小窝
 email: 1138699365@qq.com
 author: etk3mfalive
-url: http://www.hifreud.com
-resume_site: http://www.hifreud.com/Resume.io/
-github: https://github.com/luoyan35714/
+url: http://www.sonquain.com
+resume_site: http://www.sonquain.com/Resume.io/
+github: https://github.com/etk3mfalive/
 baseurl: ""
-description: Actually, less is more!
-meta_description: 康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
-motto: It's our wits that make us men.
-banner: 学而不思则罔，思而不学则殆。
+description: a stunning boy
+meta_description: Natori;Sonnet;37;世界本就是个草台班子;
+motto: Where there is no vision, there is no hope.
+banner: Each moment,now night.
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
 paginate: 10
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+exclude: ["README.md", "Gemfile.lock", "Gemfile", "Rakefile"]
 
 github_username: luoyan35714
 
@@ -23,4 +23,3 @@ github_username: luoyan35714
 markdown: kramdown
 
 baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
-
