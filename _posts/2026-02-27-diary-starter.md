@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Welcome to My World!"
-date: 2026-2-27 13:06:00 +0800
-categories: Daily
-tag: Start
+title: "First Day.Welcome to My World!"
+date: 2026-02-27 00:00:00 +0800
+categories: Diary
+tag: Life
 ---
 
 - content
