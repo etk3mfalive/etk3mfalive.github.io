@@ -26,20 +26,10 @@ topping: true
 
 ## 大学前经历 {#Experience}
 
-    偏居东南一角的山水宝地，冒出来了一个魔丸dz。经过不断的浪费公共资源，dz成功考上了PKU。
-
-## 配置 {#Configuration}
-
-## 如何写文章 {#How-to-write-document}
-
-## 执行 {#execute}
-
-## 效果 {#result}
-
-# 为什么重复造轮子 {#why}
+偏居东南一角的山水宝地，冒出来了一个魔丸dz。经过不断的浪费公共资源，dz成功考上了PKU。这部分以后有空再说吧，感觉纯狗运。
 
 # 联系方式 {#Contact-Information}
 
-QQ:1138699365
-Wechat:etk3mfalive
-Qmail:1138699365@qq.com
+- QQ:1138699365
+- Wechat:etk3mfalive
+- Qmail:1138699365@qq.com
