@@ -1,0 +1,22 @@
+# 主题配置覆盖文件（Hexo 5+ 支持）
+# 这里的配置会与主题自带的 node_modules/hexo-theme-landscape/_config.yml 合并，
+# 且以此文件为准。不要直接修改 node_modules 里的主题文件——npm ci 会把它覆盖掉。
+
+# 导航菜单
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+
+# 页头副标题
+subtitle: Love, Joy and Peace
+
+# 右上角图标链接（图标名用 Fork Awesome 的名字）
+links:
+  github: https://github.com/etk3mfalive
+  # twitter: https://twitter.com/your_account
+  # telegram: https://t.me/your_account
+
+# 页脚版权（可用 HTML）
+# copyright: |-
+#   © 2026 Sonquain
