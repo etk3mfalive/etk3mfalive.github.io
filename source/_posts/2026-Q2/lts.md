@@ -1,8 +1,6 @@
 ---
 title: lts cc
 date: 2026-06-15 11:12:00
-updated: 2026-06-15 11:12:00
-comments: true
 ---
 
 # Language, Technology & Society (LTS) — 期末论述复习指南

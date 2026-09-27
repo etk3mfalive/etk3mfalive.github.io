@@ -1,9 +1,6 @@
 ---
 title: 第一版策划案
 date: 2026-05-20 16:49:00
-updated: 2026-05-20 16:49:00
-cover: /images/blog/gamedesign/6ddd5b9c9353510e.jpeg
-comments: true
 ---
 
 topic：“迷宫”

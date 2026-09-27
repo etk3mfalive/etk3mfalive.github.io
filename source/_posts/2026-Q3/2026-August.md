@@ -1,10 +1,6 @@
 ---
 title: 八月竹魁日记
 date: 2026-08-02 10:38:00
-updated: 2026-08-02 10:38:00
-description: 宋小弟再见了~
-cover: /images/blog/2026-August/d2f98e506611481e.jpg
-comments: true
 ---
 
 ## 8/2

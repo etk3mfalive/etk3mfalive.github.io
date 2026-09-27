@@ -1,8 +1,6 @@
 ---
 title: PKU Campus 2023A
 date: 2026-05-02 15:09:00
-updated: 2026-05-02 15:09:00
-comments: true
 ---
 
 A

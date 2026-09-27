@@ -1,9 +1,6 @@
 ---
 title: 树
 date: 2026-04-28 20:03:00
-updated: 2026-04-28 20:03:00
-cover: /images/blog/tree-basic/d678981fb1f4e882.png
-comments: true
 ---
 
 ## 树同构

@@ -1,10 +1,7 @@
 ---
 title: 排序整理
 date: 2026-04-08 11:15:00
-updated: 2026-04-08 11:15:00
-cover: /images/blog/sort/d678981fb1f4e882.png
 mathjax: true
-comments: true
 ---
 
 ## 排序定义

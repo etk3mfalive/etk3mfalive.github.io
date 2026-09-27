@@ -1,14 +1,11 @@
 ---
 title: 链表练习
 date: 2026-03-25 20:59:00
-updated: 2026-03-25 20:59:00
 categories:
   - 代码实现
-description: 链表整理
-cover: /images/blog/linkedlist/d678981fb1f4e882.png
-comments: true
 ---
 
+<!-- more -->
 ````
 #include <iostream>
 #define Type int

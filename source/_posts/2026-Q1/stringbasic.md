@@ -1,9 +1,6 @@
 ---
 title: 字符串常见用法及函数整理
 date: 2026-03-25 17:41:00
-updated: 2026-03-25 17:41:00
-cover: /images/blog/stringbasic/d678981fb1f4e882.png
-comments: true
 ---
 
 ## 前记

@@ -1,9 +1,6 @@
 ---
 title: 瓶中船——表达欲
 date: 2026-04-26 12:44:00
-updated: 2026-04-26 12:44:00
-cover: /images/blog/expression-desire/6ddd5b9c9353510e.jpeg
-comments: true
 ---
 
 ## 引言

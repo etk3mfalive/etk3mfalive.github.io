@@ -1,19 +1,16 @@
 ---
 title: 中缀表达式难题
 date: 2026-03-25 17:05:00
-updated: 2026-03-25 17:05:00
 categories:
   - 代码实现
-description: 中缀表达式，计算算式之类的
-cover: /images/blog/nifix-expression/d678981fb1f4e882.png
 mathjax: true
-comments: true
 ---
 
 # 02：中缀表达式的值
 
 **总时间限制：**200ms
 **内存限制：**1024kB
+<!-- more -->
 
 ## 描述
 
