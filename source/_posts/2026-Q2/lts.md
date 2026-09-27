@@ -4,6 +4,8 @@ date: 2026-06-15
 categories: study
 ---
 
+<!-- more -->
+
 # Language, Technology & Society (LTS) — 期末论述复习指南
 
 > 课程教师：Liu Xiaoxia (Julia) | 北京大学外国语学院

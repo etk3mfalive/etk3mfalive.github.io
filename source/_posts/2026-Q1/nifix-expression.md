@@ -5,12 +5,12 @@ categories: code
 mathjax: true
 ---
 
+<!-- more -->
+
 # 02：中缀表达式的值
 
 **总时间限制：**200ms
 **内存限制：**1024kB
-
-<!-- more -->
 
 ## 描述
 
