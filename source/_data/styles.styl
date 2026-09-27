@@ -7,9 +7,9 @@
 // 以及代码块 / 图片这些主题根本没给圆角的元素。
 // ============================================================
 
-$r-lg = 10px;  // 大卡片
-$r-md = 8px;   // 中等元素
-$r-sm = 5px;   // 小元素（行内代码等）
+$r-lg = 20px;  // 大卡片（原 10px，翻倍）
+$r-md = 16px;  // 中等元素（原 8px）
+$r-sm = 10px;  // 小元素（原 5px，行内代码等）
 
 // ---------- 大卡片：兜底，变量已覆盖，这里防止个别选择器漏掉 ----------
 .header,
@@ -17,6 +17,26 @@ $r-sm = 5px;   // 小元素（行内代码等）
 .sidebar-inner,
 .main-inner .post-block {
   border-radius: $r-lg;
+}
+
+// ---------- 顶栏与第一张内容卡片之间的间距 ----------
+// Gemini 桌面端用 $sidebar-offset(12px) 同时充当 .main-inner 与 .post-block 的内边距，
+// 所以第一张卡片几乎贴着顶栏。这里只加厚 .main-inner 的「顶部」内边距做出呼吸空间，
+// 其它三边不受影响。
+.main-inner {
+  padding-top: 32px;
+}
+
+@media (max-width: 991px) {
+  .main-inner {
+    padding-top: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-inner {
+    padding-top: 16px;
+  }
 }
 
 // ---------- 代码块 ----------

@@ -4,9 +4,9 @@ date: 2026-04-28
 categories: code
 ---
 
-<!-- more -->
-
 ## 树同构
+
+<!-- more -->
 
 ```
 #include <iostream>

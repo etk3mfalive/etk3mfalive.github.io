@@ -4,11 +4,11 @@ date: 2026-04-01
 categories: diary
 ---
 
-<!-- more -->
 
 ## 4/1
 
 April Fool!愚人节快乐！
+<!-- more -->
 
 ## 4/4
 

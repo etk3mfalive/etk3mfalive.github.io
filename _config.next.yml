@@ -27,9 +27,11 @@ custom_file_path:
   #postBodyEnd: source/_data/post-body-end.njk
   #footer: source/_data/footer.njk
   #bodyEnd: source/_data/body-end.njk
-  #variable: source/_data/variables.styl
+  # 圆角：覆盖 Gemini 的 $border-radius（否则是 initial = 0 = 方角）
+  variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  # 额外的圆角细节（代码块、按钮、图片、标签等）
+  style: source/_data/styles.styl
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -144,9 +146,10 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  # 头像文件位于 source/images/avatar.jpg（原 avatar.png 实为 JPEG，已改名为 .jpg 并压到 240px）
+  url: /images/avatar.jpg
   # If true, the avatar will be displayed in circle.
-  rounded: false
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -158,7 +161,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
+  GitHub: https://github.com/etk3mfalive || fab fa-github
+  Bilibili: https://space.bilibili.com/1966526891 || fab fa-bilibili
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Twitter: https://twitter.com/yourname || fab fa-twitter

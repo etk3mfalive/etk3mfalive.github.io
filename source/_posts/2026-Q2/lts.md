@@ -4,12 +4,12 @@ date: 2026-06-15
 categories: study
 ---
 
-<!-- more -->
 
 # Language, Technology & Society (LTS) — 期末论述复习指南
 
 > 课程教师：Liu Xiaoxia (Julia) | 北京大学外国语学院
 > 本文档覆盖 Unit 1–11, 15，用于备考 300 词大作文 + 100 词小作文
+<!-- more -->
 
 ---
 
@@ -44,8 +44,6 @@ categories: study
 | **Pragmatics** | 社会语境中的语言使用 (language use in social contexts) |
 
 ---
-
-<!-- more -->
 
 ## Unit 2 — How Writing Came About (书写是如何产生的)
 
