@@ -1,10 +1,12 @@
 ---
 title: PKU Campus 2023A
-date: 2026-05-02 15:09:00
+date: 2026-05-02
+categories: code
 ---
 
 A
 神秘贪心挺有意思的
+
 ```
 #include <iostream>
 #include <algorithm>

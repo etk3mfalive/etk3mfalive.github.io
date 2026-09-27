@@ -1,13 +1,15 @@
 ---
 title: 树
-date: 2026-04-28 20:03:00
+date: 2026-04-28
+categories: code
 ---
 
 ## 树同构
+
 ```
 #include <iostream>
 #include <vector>
-#include <set> 
+#include <set>
 #include <random>
 #include <ctime>
 using ull=unsigned long long;
@@ -33,8 +35,8 @@ void getval(int u,int fa){
 	for (int v:to[u]){
 		if (v==fa) continue;
 		getval(v,u);
-		val[u]+=shift(val[v]); 
-	} 
+		val[u]+=shift(val[v]);
+	}
 	treeval.insert(val[u]);
 }
 int main(){

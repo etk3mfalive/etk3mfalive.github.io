@@ -1,11 +1,11 @@
 ---
 title: 链表练习
-date: 2026-03-25 20:59:00
-categories:
-  - 代码实现
+date: 2026-03-25
+categories: code
 ---
 
 <!-- more -->
+
 ````
 #include <iostream>
 #define Type int
@@ -83,3 +83,4 @@ int main() {
     return 0;
 }
 ```
+````
