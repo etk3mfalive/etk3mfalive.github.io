@@ -1,18 +1,36 @@
 ---
-title: 关于
-date: 2026-09-27 12:43:21
+title: 关于 Sonquain
+date: 2026-09-26 12:00:00
+comments: false
 ---
 
-## 关于我
+## 关于 Sonquain —— 持续补充
 
-你好，我是 **Sonquain**。
+最喜欢的颜色：浅蓝，黑灰白，亮黄
 
-这里是记录我学习与生活的地方。
+最喜欢的事物：羽毛笔、高高的咖啡杯、淅淅沥沥的小雨、自然而深刻的逻辑
 
-- GitHub：[@etk3mfalive](https://github.com/etk3mfalive)
-- 邮箱：（换成你希望公开的邮箱）
+曾经最喜欢的歌单（不一定要耐听但至少要认可）：先留着
 
-## 关于本站
+很讨厌害怕的事物：很安静的环境、昏暗空阔的房间、狂风暴雨中央、无逻辑且麻烦的概念
 
-本站使用 [Hexo](https://hexo.io/) 生成静态页面，托管在 GitHub Pages 上，
-并通过 GitHub Actions 在每次 `git push` 后自动构建部署。
+北大喜欢的美食：3W 家三烧烤和烤盘饭、粽叶烤鱼、农二烧鸭窗口、西北窗口羊肉串、燕南家常菜、学一襄阳牛肉面和披萨、勺二黄焖鸡
+
+最喜欢的：夏夜傍晚淋着小雨骑自行车；能和熟悉的人畅谈一切的舒畅
+
+## 关于网站
+
+- 📦 内容以 Git 仓库为唯一数据源，所有修改版本可控
+- 🚀 纯静态站点，无后端、无数据库，构建产物直接托管
+- ✏️ 日常写作在浏览器里用 Pages CMS 完成，也可以直接写 Markdown
+- 🖼️ 图片托管在 Cloudflare R2 图床，不占用代码仓库
+- 💬 评论与留言板基于 GitHub Discussions（Giscus），无需服务器
+
+## 技术栈
+
+- Hexo
+- NexT 主题（Gemini 风格）
+- Cloudflare Pages（托管）
+- Cloudflare R2（图床）
+- Pages CMS（在线写作后台）
+- Giscus（评论）

@@ -1,0 +1,91 @@
+// ============================================================
+// 额外的样式覆盖
+// 加载位置：主题 source/css/main.styl 第 46 行（整个样式表的最末尾），
+//           所以这里的规则优先级最高，能盖掉主题自带的写法。
+//
+// 这里只处理「变量覆盖不到」的地方：主题里写死的小圆角，
+// 以及代码块 / 图片这些主题根本没给圆角的元素。
+// ============================================================
+
+$r-lg = 10px;  // 大卡片
+$r-md = 8px;   // 中等元素
+$r-sm = 5px;   // 小元素（行内代码等）
+
+// ---------- 大卡片：兜底，变量已覆盖，这里防止个别选择器漏掉 ----------
+.header,
+.main-inner,
+.sidebar-inner,
+.main-inner .post-block {
+  border-radius: $r-lg;
+}
+
+// ---------- 代码块 ----------
+// 主题只给了行内 code 圆角，figure.highlight 本身没有，
+// 需要 overflow: hidden 让内部 table 的背景也跟着圆角裁切。
+figure.highlight,
+.highlight,
+.codeblock {
+  border-radius: $r-md;
+  overflow: hidden;
+}
+
+pre {
+  border-radius: $r-md;
+}
+
+// ---------- 行内代码 ----------
+code {
+  border-radius: $r-sm;
+}
+
+// 键盘按键
+kbd {
+  border-radius: $r-sm;
+}
+
+// ---------- 正文图片 ----------
+.post-body img {
+  border-radius: $r-md;
+}
+
+// ---------- 按钮 ----------
+.btn,
+.reward-container button,
+.sidebar .sidebar-button button {
+  border-radius: $r-md;
+}
+
+// ---------- 侧栏社交链接 ----------
+.links-of-author-item a {
+  border-radius: $r-md;
+}
+
+// ---------- 分页 ----------
+.pagination,
+.pagination .page-number,
+.pagination .extend {
+  border-radius: $r-md;
+}
+
+// ---------- 搜索弹窗 ----------
+.search-popup,
+.search-popup .search-input-container input {
+  border-radius: $r-md;
+}
+
+// ---------- note 提示块 ----------
+.post-body .note {
+  border-radius: $r-md;
+}
+
+// ---------- 窄屏兜底 ----------
+// Gemini 方案在 <=991px 时会把这些容器重新设回 `border-radius: initial`，
+// 不补这一段的话手机上还是方角。
+@media (max-width: 991px) {
+  header.header,
+  .main-inner,
+  .sidebar-inner,
+  .main-inner .post-block {
+    border-radius: $r-lg;
+  }
+}

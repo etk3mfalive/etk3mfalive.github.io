@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# 写作控制台不参与收录
+Disallow: /write/
+Disallow: /write
+
+Sitemap: https://etk3mfalive.github.io/sitemap.xml

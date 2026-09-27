@@ -1,0 +1,12 @@
+// ============================================================
+// 覆盖 NexT 的 stylus 变量
+// 加载位置：主题 source/css/main.styl 第 13 行
+//           —— 在 _variables/base 和 _variables/Gemini 之后，
+//              因此这里的赋值能覆盖主题默认值。
+// ============================================================
+
+// Gemini 方案默认 $border-radius = initial，
+// 而 initial 对 border-radius 来说就是 0，所以顶栏 / 内容卡片 / 侧栏 / 分页
+// 全都渲染成方角。这里统一改成圆角。
+$border-radius       = 10px;
+$border-radius-inner = 10px;

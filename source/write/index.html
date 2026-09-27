@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>写作控制台 · SelfWeb</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --text: #333;
+    --muted: #888;
+    --border: #e3e5e9;
+    --accent: #de4331;
+    --accent-soft: #fdecea;
+    --ok: #1a9c6b;
+    --warn: #d08700;
+    --err: #d93025;
+    --radius: 10px;
+    --mono: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace;
+  }
+  html[data-theme="dark"] {
+    --bg: #1b1d21;
+    --panel: #24262b;
+    --text: #d6d8dc;
+    --muted: #8a8d94;
+    --border: #34373d;
+    --accent-soft: #3a2422;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 20px;
+    background: var(--bg); color: var(--text);
+    font: 15px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h1 small { font-weight: normal; font-size: 13px; color: var(--muted); margin-left: 8px; }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px; margin-bottom: 16px;
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+  input[type=text], input[type=password], input[type=datetime-local], textarea, select {
+    width: 100%; padding: 8px 10px;
+    border: 1px solid var(--border); border-radius: 8px;
+    background: var(--bg); color: var(--text);
+    font-family: inherit; font-size: 14px;
+  }
+  textarea { font-family: var(--mono); font-size: 13px; line-height: 1.6; resize: vertical; }
+  textarea#body { min-height: 440px; }
+  textarea#pem { min-height: 110px; }
+  button {
+    padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--panel); color: var(--text); cursor: pointer;
+    font-size: 14px; font-family: inherit;
+  }
+  button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.primary:hover:not(:disabled) { opacity: .88; color: #fff; }
+  button.danger:hover:not(:disabled) { border-color: var(--err); color: var(--err); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .status { font-size: 13px; padding: 8px 10px; border-radius: 8px; margin-top: 10px; display: none; }
+  .status.show { display: block; }
+  .status.ok   { background: rgba(26,156,107,.12); color: var(--ok); }
+  .status.warn { background: rgba(208,135,0,.12); color: var(--warn); }
+  .status.err  { background: rgba(217,48,37,.12); color: var(--err); }
+  .log {
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    max-height: 130px; overflow: auto; margin-top: 8px; white-space: pre-wrap;
+  }
+  ul.posts { list-style: none; margin: 0; padding: 0; max-height: 520px; overflow: auto; }
+  ul.posts li {
+    padding: 9px 11px; border-radius: 8px; cursor: pointer;
+    border: 1px solid transparent; font-size: 14px;
+  }
+  ul.posts li:hover { background: var(--accent-soft); }
+  ul.posts li.active { border-color: var(--accent); background: var(--accent-soft); }
+  ul.posts li .meta { display: block; font-size: 12px; color: var(--muted); }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+  .preview {
+    border: 1px dashed var(--border); border-radius: 8px; padding: 14px;
+    max-height: 440px; overflow: auto; font-size: 14px;
+  }
+  .preview img { max-width: 100%; border-radius: 8px; }
+  .preview pre {
+    background: var(--bg); padding: 10px; border-radius: 8px; overflow: auto;
+    font-family: var(--mono); font-size: 12.5px;
+  }
+  .preview code { background: var(--bg); padding: 1px 5px; border-radius: 5px; font-family: var(--mono); }
+  .preview blockquote { border-left: 3px solid var(--border); margin: 0; padding-left: 12px; color: var(--muted); }
+  .tag-input { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .tag-input .chip {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 3px 9px; border-radius: 20px; font-size: 13px; cursor: pointer;
+  }
+  .drop-zone {
+    border: 1.5px dashed var(--border); border-radius: 8px;
+    padding: 12px; text-align: center; font-size: 13px; color: var(--muted);
+    cursor: pointer; margin-top: 8px;
+  }
+  .drop-zone.over { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .themer { position: fixed; right: 16px; top: 16px; }
+  details summary { cursor: pointer; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="themer"><button id="theme-toggle" title="切换深色模式">🌓</button></div>
+
+<div class="wrap">
+  <h1>写作控制台 <small>SelfWeb · Hexo</small></h1>
+  <p class="hint">
+    私钥只在你自己的浏览器里参与签名，<b>不会发送到任何服务器</b>（只有签名结果发给 GitHub）。
+    提交成功后 Cloudflare Pages 会自动重新构建，1~2 分钟后网站更新。
+  </p>
+
+  <!-- ================= 1. 认证 ================= -->
+  <div class="panel" id="auth-panel">
+    <div class="row" style="justify-content:space-between">
+      <strong>第一步 · 用 GitHub App 私钥连接</strong>
+      <span id="auth-state" class="hint">未连接</span>
+    </div>
+
+    <details style="margin-top:10px">
+      <summary>仓库设置（一般不用改）</summary>
+      <div class="grid" style="margin-top:8px">
+        <div><label>仓库所有者 owner</label><input type="text" id="owner"></div>
+        <div><label>仓库名 repo</label><input type="text" id="repo"></div>
+        <div><label>分支 branch</label><input type="text" id="branch"></div>
+        <div><label>GitHub App ID</label><input type="text" id="appid"></div>
+      </div>
+    </details>
+
+    <label>选择私钥文件（.pem）</label>
+    <div class="row">
+      <input type="file" id="pem-file" accept=".pem,.key,.txt">
+    </div>
+
+    <label>或者直接粘贴私钥内容</label>
+    <textarea id="pem" placeholder="-----BEGIN RSA PRIVATE KEY-----&#10;...&#10;-----END RSA PRIVATE KEY-----"></textarea>
+
+    <div class="row" style="margin-top:12px">
+      <input type="password" id="passphrase" placeholder="可选：设一个口令，把私钥加密后记住到本次会话" style="max-width:420px">
+      <button id="btn-connect" class="primary">连接</button>
+      <button id="btn-forget">清除已保存的私钥</button>
+    </div>
+    <div class="hint">
+      口令只用于在浏览器里加密私钥（PBKDF2 25 万次 + AES-GCM），加密结果存在 sessionStorage，
+      关掉标签页即失效。不填口令则私钥仅保留在内存中。
+    </div>
+
+    <div id="auth-status" class="status"></div>
+    <div id="auth-log" class="log"></div>
+  </div>
+
+  <!-- ================= 2. 文章列表 ================= -->
+  <div class="panel" id="list-panel" style="display:none">
+    <div class="row" style="justify-content:space-between">
+      <strong>第二步 · 选择要编辑的文章</strong>
+      <div class="row">
+        <button id="btn-refresh">刷新列表</button>
+        <button id="btn-new" class="primary">新建文章</button>
+      </div>
+    </div>
+    <input type="text" id="filter" placeholder="按标题 / 文件名筛选…" style="margin-top:10px">
+    <ul class="posts" id="posts" style="margin-top:10px"></ul>
+    <div class="hint" id="list-hint"></div>
+  </div>
+
+  <!-- ================= 3. 编辑器 ================= -->
+  <div class="panel" id="edit-panel" style="display:none">
+    <div class="row" style="justify-content:space-between">
+      <strong id="edit-title-label">第三步 · 编辑</strong>
+      <span class="hint" id="mode-badge"></span>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label>标题 *</label>
+        <input type="text" id="f-title" placeholder="文章标题">
+
+        <label>文件名 / slug *（决定网址，只能用字母数字 - _ 和中文）</label>
+        <input type="text" id="f-slug" placeholder="2026-October">
+        <div class="hint" id="slug-preview"></div>
+
+        <label>发布时间</label>
+        <input type="datetime-local" id="f-date">
+
+        <label>分类</label>
+        <input type="text" id="f-category" list="cat-list" placeholder="例如：学习笔记">
+        <datalist id="cat-list"></datalist>
+
+        <label>标签（回车添加，点标签删除）</label>
+        <div class="tag-input">
+          <input type="text" id="f-tag-input" placeholder="输入后按回车" style="flex:1;min-width:140px">
+        </div>
+        <div class="row" id="tag-chips" style="margin-top:6px"></div>
+
+        <label>摘要（列表页显示的简介）</label>
+        <textarea id="f-summary" style="min-height:64px"></textarea>
+
+        <label>封面图片地址（留空则不显示）</label>
+        <input type="text" id="f-cover" placeholder="https://img.soq.app/... 或 /images/...">
+
+        <label>正文（Markdown）*</label>
+        <textarea id="body" placeholder="## 小标题&#10;&#10;正文…"></textarea>
+
+        <div class="drop-zone" id="drop-zone">
+          拖拽图片到此处，或点击选择 → 自动上传并插入 Markdown
+        </div>
+        <input type="file" id="img-file" accept="image/*" multiple style="display:none">
+      </div>
+
+      <div>
+        <label>实时预览</label>
+        <div class="preview" id="preview"></div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:16px">
+      <button id="btn-save" class="primary">保存并发布</button>
+      <button id="btn-delete" class="danger">删除这篇文章</button>
+      <button id="btn-cancel">取消编辑</button>
+    </div>
+
+    <div id="save-status" class="status"></div>
+    <div id="save-log" class="log"></div>
+  </div>
+</div>
+
+<script src="vendor/marked.umd.js"></script>
+<script src="write.js"></script>
+</body>
+</html>
