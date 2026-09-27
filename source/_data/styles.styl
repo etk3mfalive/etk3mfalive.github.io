@@ -19,23 +19,61 @@ $r-sm = 10px;  // 小元素（原 5px，行内代码等）
   border-radius: $r-lg;
 }
 
-// ---------- 顶栏与第一张内容卡片之间的间距 ----------
+// ---------- 左上角黑色栏：明显低于卡片顶边，四角圆角，左右与卡片对齐 ----------
+// Gemini 桌面端 .column 紧贴视口顶部，黑栏（.site-brand-container，背景 = --theme-color #222）
+// 是 header 卡片的第一个子元素：默认紧贴卡片顶边，并且因为主题的 `padding: 0 10px`
+// 而比卡片左右边缘各缩进 10px —— 这就是「黑框没有和白框对齐」的来源。
+//
+// 这里做三件事：
+//   1) 负的左右外边距抵消主题那 10px，让黑栏左右与白卡片严丝合缝；
+//   2) margin-top 给足（30px），黑栏从卡片顶边明显沉下来；
+//   3) border-radius 用 $r-lg，和卡片、侧栏共用同一套圆角。
+// 下移只作用在黑栏自身，不给 .column 加外边距，否则整张卡片（含菜单和第一篇文章）会跟着走。
+.site-brand-container {
+  border-radius: $r-lg;
+  margin: 60px 0px -10px;
+}
+
+// ---------- 扩大黑栏与文字栏（菜单元件）之间的距离 ----------
+// 黑栏之下、菜单文字之上的留白由 .menu 的上内边距控制；
+// 主题原值 padding: 1em 0，这里加厚，黑栏↔菜单、菜单↔文章卡片都更透气。
+.menu {
+  padding: 1.6em 0;
+}
+
+// ---------- 黑栏（含菜单）与第一张内容卡片之间的间距 ----------
 // Gemini 桌面端用 $sidebar-offset(12px) 同时充当 .main-inner 与 .post-block 的内边距，
-// 所以第一张卡片几乎贴着顶栏。这里只加厚 .main-inner 的「顶部」内边距做出呼吸空间，
+// 所以第一张卡片几乎贴着顶栏白卡片。这里只加厚 .main-inner 的「顶部」内边距做出呼吸空间，
 // 其它三边不受影响。
 .main-inner {
-  padding-top: 32px;
+  padding-top: 52px;
 }
 
 @media (max-width: 991px) {
+  .site-brand-container {
+    margin: 24px -10px 0;
+  }
+
+  .menu {
+    padding: 1.2em 0;
+  }
+
   .main-inner {
-    padding-top: 22px;
+    padding-top: 34px;
   }
 }
 
 @media (max-width: 767px) {
+  .site-brand-container {
+    margin: 18px -10px 0;
+  }
+
+  .menu {
+    padding: 0.9em 0;
+  }
+
   .main-inner {
-    padding-top: 16px;
+    padding-top: 22px;
   }
 }
 
